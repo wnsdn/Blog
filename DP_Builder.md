@@ -16,7 +16,7 @@ private:
 	int Height = 0;        //키
 	int Weight = 0;        //몸무게
 public:
-    //생성자 선언
+    	//생성자 선언
 	MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight);
 };
 ```
@@ -39,13 +39,13 @@ MyPerson::MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight)
 
 int main()
 {
-    //Person1 생성
+    	//Person1 생성
 	MyPerson Person1{ "재석", 13, 170, 60 };
 
-    //Person2 생성
+    	//Person2 생성
 	MyPerson Person2{ "명수", 20, 182, 78 };
 
-    //Person3 생성
+    	//Person3 생성
 	MyPerson Person3{ "홍철", 18, 153, 44 };
 
 	return 0;
@@ -538,7 +538,11 @@ int main()
 }
 ```
 
+<<<<<<< HEAD
 - 확실히 더 깔끔해졌다!
     > [흐름식 빌더](#⭐-흐름식-빌더)의 객체 생성부분과 비교해보면 확실하게 깔끔하다.
 
 
+=======
+    > [흐름식 빌더](#⭐-흐름식-빌더)의 객체 생성부분과 비교해보면 확실하게 깔끔하다.
+>>>>>>> eae7cef5f379da9d8313a7fecc5b867d2e0abf88
