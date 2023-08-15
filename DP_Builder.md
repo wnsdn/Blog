@@ -1,5 +1,9 @@
+<a id="일반적인객체생성"></a>
+
 # ⭐ 일반적인 객체 생성
+
 **`🔻 MyPerson.h`**
+
 ```cpp
 #pragma once
 #include <string>
@@ -16,7 +20,9 @@ public:
 	MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight);
 };
 ```
+
 **`🔻 MyPerson.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -25,7 +31,9 @@ MyPerson::MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight)
 	: Name(_Name), Age(_Age), Height(_Height), Weight(_Weight)
 {}
 ```
+
 **`🔻 main.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -43,16 +51,19 @@ int main()
 	return 0;
 }
 ```
+
 - 4가지 **`속성`** 을 갖는, MyPerson **`클래스`** 를 정의하였다.
 
-    > 보다시피 아주 간단하다.<br>
+    > 보다시피 아주 간단하다.  
     >
     > 하지만, 속성이 늘어날수록 코드가 더러워질것이다.
 
 <br>
 
 # ⭐ 속성 추가
+
 **`🔻 MyPerson.h`**
+
 ```cpp
 std::string Name{};
 int Age = 0;
@@ -68,10 +79,13 @@ MyPerson::MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight,
 	: Name(_Name), Age(_Age), Height(_Height), Weight(_Weight), add1(_add1), add2(_add2), ...(_add...)
 {}
 ```
+
 **`🔻 MyPerson.cpp`**
+
 ```cpp
 MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight, char add1, char add2, char _add...);
 ```
+
 - **`속성`** 추가, **`생성자`** 인자추가
 
     > MyPerson 클래스에 몇개의 속성이 추가된다. (add1, add2, add...)
@@ -81,14 +95,16 @@ MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight, char add1
 <br>
 
 **`🔻 main.cpp`**
+
 ```cpp
 MyPerson Person1{ "재석", 13, 170, 60, add1, add2, ...};
 MyPerson Person2{ "명수", 20, 182, 78, add1, add2, ...};
 MyPerson Person3{ "홍철", 18, 153, 44, add1, add2, ...};
 ```
+
 - **`기존 객체`** 도 영향을 받는다.
 
-    > 새로 추가된 속성이 기존 객체에게 필요없더라도,<br>
+    > 새로 추가된 속성이 기존 객체에게 필요없더라도,  
     > 호출부를 수정해줘야한다.
     >
     > 반대로, 새로 만들어질 객체에게는 기존의 속성이 필요없을 수도 있다.
@@ -96,7 +112,9 @@ MyPerson Person3{ "홍철", 18, 153, 44, add1, add2, ...};
 <br>
 
 # ⭐ 단순한 빌더 - 소개
+
 **`🔻 MyPerson.h`**
+
 ```cpp
 #pragma once
 #include <string>
@@ -115,7 +133,9 @@ public:
 	void SetWeight(int _Weight);
 };
 ```
+
 **`🔻 MyPerson.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -139,15 +159,17 @@ void MyPerson::SetWeight(int _Weight)
 	Weight = _Weight;
 }
 ```
+
 - **`생성자`** to **`Setter`**
 
-    > `생성자`를 `기본생성자`로 대체하고,<br>
+    > `생성자`를 `기본생성자`로 대체하고,  
     >
     > 각 속성들에 대한 `Setter`를 만들어준다.
 
 <br>
 
 **`🔻 main.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -174,17 +196,20 @@ int main()
 	return 0;
 }
 ```
+
 - **`일반적인 객체 생성`** 과 같은 결과를 보여준다.
 
     > **"결과는 같은데, 괜히 코드만 길게 치는거 아닌가?"** 라는 생각이 들 수 있다.
     >
-    > 하지만, 빌더만의 장점이 있다.<br>
+    > 하지만, 빌더만의 장점이 있다.  
     > 뒤에서 빌더의 장점을 알아보자,
 
 <br>
 
 # ⭐ 단순한 빌더 - 장점
+
 **`🔻 MyPerson.h`**
+
 ```cpp
 std::string Name{};
 int Age = 0;
@@ -200,7 +225,9 @@ void SetHeight(int _Height);
 void SetWeight(int _Weight);
 void SetAddress(const std::string& _Address);    //추가된 Setter - 선언
 ```
+
 **`🔻 MyPerson.cpp`**
+
 ```cpp
 ...
 
@@ -210,17 +237,19 @@ void MyPerson::SetAddress(const std::string& _Address)
 	Address = _Address;
 }
 ```
+
 - **`속성`** 추가, **`Setter`** 추가
 
-    > 속성이 추가되어, 그에 대한 Setter도 만들어준다.<br>
+    > 속성이 추가되어, 그에 대한 Setter도 만들어준다.  
     >
-    > [일반적인 객체 생성](#⭐-일반적인-객체-생성) 방식과 달리,<br>
-    > 기존의 어떤 함수에도 영향을 미치지 않는다.<br>
+    > [일반적인 객체 생성](#일반적인객체생성) 방식과 달리,  
+    > 기존의 어떤 함수에도 영향을 미치지 않는다.  
     > 그로인해, `속성의 추가,제거 용이`
 
 <br>
 
 **`🔻 main.cpp`**
+
 ```cpp
 ...
 
@@ -234,22 +263,25 @@ NewPerson.SetHeight(190);
 NewPerson.SetWeight(85);
 NewPerson.SetAddress("유럽 어느 산골속 성");
 ```
+
 - 새로운 두 객체를 생성한다.
 
-    > 첫 번째 사람은 기억을 잃어서 이름, 나이, 주소를 모른다.<br>
+    > 첫 번째 사람은 기억을 잃어서 이름, 나이, 주소를 모른다.  
     > 그래서 키, 몸무게만으로 생성했다.
     >
-    > 두 번째 사람은 뱀파이어라서 너무 오래 산 나머지 나이를 까먹었다.<br>
+    > 두 번째 사람은 뱀파이어라서 너무 오래 산 나머지 나이를 까먹었다.  
     > 그래서 나이 없이 생성했다.
 - **`빌더방식의 장점`**
     1. 필요한 속성만 사용해서 깔끔하게 객체생성 가능
-    1. 코드 수정 시, 다른 부분에 영향을 주지 않는다.
+    2. 코드 수정 시, 다른 부분에 영향을 주지 않는다.
 
 
 <br>
 
 # ⭐ 흐름식 빌더
+
 **`🔻 MyPerson.h`**
+
 ```cpp
 #pragma once
 #include <string>
@@ -270,7 +302,9 @@ public:
 	MyPerson& SetAddress(const std::string& _Address);
 };
 ```
+
 **`🔻 MyPerson.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -304,14 +338,16 @@ MyPerson& MyPerson::SetAddress(const std::string& _Address)
 	return *this;
 }
 ```
+
 - **`Setter`** 에서 **`자기자신의 참조`** 를 반환한다
 
-    > MyPerson& 를 반환형으로 설정하고,<br>
+    > MyPerson& 를 반환형으로 설정하고,  
     > *this 를 return 한다.
 
 <br>
 
 **`🔻 main.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -351,15 +387,18 @@ int main()
 	return 0;
 }
 ```
+
 - **`Setter`** 를 이어서 사용할 수 있다.
 
-    > 앞의 Setter 함수에서 자기자신의 참조를 반환하기 때문에,<br>
+    > 앞의 Setter 함수에서 자기자신의 참조를 반환하기 때문에,  
     > 이어서 Setter 를 사용할 수 있다.
 
 <br>
 
 # ⭐ 조금 더 깔끔하게
+
 **`🔻 MyPerson.h`**
+
 ```cpp
 #pragma once
 #include <string>
@@ -397,7 +436,9 @@ public:
 	}
 };
 ```
+
 **`🔻 MyPerson.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -438,6 +479,7 @@ MyPersonBuilder& MyPersonBuilder::SetAddress(const std::string& _Address)
 	return *this;
 }
 ```
+
 1. 빌더를 다른 파일로 빼던지, 아래로 빼준다.
     > MyPerson(본체)와 MyPersonBuilder(빌더)가 각자 본연의 기능을 하게 하여 깔끔하게 만들어준다.
     >
@@ -445,8 +487,8 @@ MyPersonBuilder& MyPersonBuilder::SetAddress(const std::string& _Address)
 1. `전방선언`을 하여 MyPerson에게 MyPersonBuilder를 알려준다.
     > Build 메서드 사용을 위해 알려준다.
 1. `friend class`로 선언하여 빌더에서 본체의 private에 접근가능하게 해준다.
-    > 빌더에 Person(본체)를 선언하면,<br>
-    > 초기화를 위해 숨겨진 생성자에 접근할 수 있어야한다.<br>
+    > 빌더에 Person(본체)를 선언하면,  
+    > 초기화를 위해 숨겨진 생성자에 접근할 수 있어야한다.  
     >
     > 그를 위해 friend class를 선언해준다.
 1. 빌더를 본체로 `형변환해주는 operator`를 만들어준다.
@@ -455,6 +497,7 @@ MyPersonBuilder& MyPersonBuilder::SetAddress(const std::string& _Address)
 <br>
 
 **`🔻 main.cpp`**
+
 ```cpp
 #include "MyPerson.h"
 
@@ -494,6 +537,8 @@ int main()
 	return 0;
 }
 ```
-- 확실히 더 깔끔해졌다!
 
+- 확실히 더 깔끔해졌다!
     > [흐름식 빌더](#⭐-흐름식-빌더)의 객체 생성부분과 비교해보면 확실하게 깔끔하다.
+
+
