@@ -12,7 +12,7 @@ private:
 	int Height = 0;        //키
 	int Weight = 0;        //몸무게
 public:
-    //생성자 선언
+    	//생성자 선언
 	MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight);
 };
 ```
@@ -31,13 +31,13 @@ MyPerson::MyPerson(const std::string& _Name, int _Age, int _Height, int _Weight)
 
 int main()
 {
-    //Person1 생성
+    	//Person1 생성
 	MyPerson Person1{ "재석", 13, 170, 60 };
 
-    //Person2 생성
+    	//Person2 생성
 	MyPerson Person2{ "명수", 20, 182, 78 };
 
-    //Person3 생성
+    	//Person3 생성
 	MyPerson Person3{ "홍철", 18, 153, 44 };
 
 	return 0;
