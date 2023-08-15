@@ -278,8 +278,6 @@ NewPerson.SetAddress("유럽 어느 산골속 성");
 
 <br>
 
-<a id="흐름식"></a>
-
 # ⭐ 흐름식 빌더
 
 **`🔻 MyPerson.h`**
@@ -347,6 +345,7 @@ MyPerson& MyPerson::SetAddress(const std::string& _Address)
     > *this 를 return 한다.
 
 <br>
+<a id="흐객생"></a>
 
 **`🔻 main.cpp`**
 
@@ -541,4 +540,4 @@ int main()
 ```
 
 - 확실히 더 깔끔해졌다!
-    > [흐름식 빌더](#흐름식)의 객체 생성부분과 비교해보면 확실하게 깔끔하다.
+    > [흐름식 빌더](#흐객생)의 객체 생성부분과 비교해보면 확실하게 깔끔하다.
