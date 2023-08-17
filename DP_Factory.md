@@ -388,5 +388,5 @@ int main()
 ***
 |⏮️ Prev : [빌더(Builder)](DP_Builder.md) |
 |---------|
-|⏭️ Next : [팩토리(Factory)](DP_Factory.md)|
+|⏭️ Next : [프로토타입(Prototype)](DP_Prototype.md)|
 ***
